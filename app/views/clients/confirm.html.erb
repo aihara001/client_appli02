@@ -1,0 +1,16 @@
+<h3>以下の内容で、作成する。</h3>
+
+<%= form_with(model: @client, url: clients_path, local: true) do |form| %>
+  <%= form.hidden_field :client_name %>
+  <%= form.hidden_field :client_content %>
+
+  <p>クライアント名：<%= @client.client_name %></p>
+  <p>クライアントメモ：<%= @client.client_content %></p>
+  <%= form.submit  "登録する" %>
+<% end %>
+
+<%= form_with(model: @client, url: new_client_path, local: true, method: 'get') do |form| %>
+  <%= form.hidden_field :client_name %>
+  <%= form.hidden_field :client_content %>
+  <%= form.submit "もどる", name: 'back' %>
+<% end %>

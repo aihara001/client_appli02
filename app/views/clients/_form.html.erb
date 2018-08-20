@@ -1,0 +1,25 @@
+<%= form_with(model: @client, local: true ,url: choose_new_or_edit ) do |form| %>
+  <% if @client.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @client.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @client.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
+
+  <div class="client_title">
+    <%= form.label :クライアント名 %>
+    <%= form.text_field :client_name %>
+  </div>
+  <div class="client_title">
+    <%= form.label :クライアントメモ %>
+    <%= form.text_field :client_content %>
+  </div>
+  <%= form.submit %>
+<% end %>
+
+<%= link_to "一覧画面にもどる", clients_path %>

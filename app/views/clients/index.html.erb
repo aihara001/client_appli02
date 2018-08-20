@@ -1,0 +1,21 @@
+<h1>クライアント一覧</h1>
+<p><%= notice %></p>
+
+<table>
+  <tr>
+    <th>クライアント名</th>
+    <th>クライアントメモ</th>
+  </tr>
+
+<% @clients.each do |client| %>
+  <tr>
+    <td><%= client.client_name %></td>
+    <td><%= client.client_content %></td>
+    <td><%= link_to '詳細', client_path(client.id) %></td>
+    <td><%= link_to "編集", edit_client_path(client.id), data: { confirm: '本当に編集していいですか？' } %></td>
+    <td><%= link_to '削除', client_path(client.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to '新しくクライアントを作成する', new_client_path %>
