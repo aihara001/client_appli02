@@ -1,0 +1,23 @@
+<h1>案件一覧</h1>
+
+<table>
+  <tr>
+    <th>案件名</th>
+    <th>作業日</th>
+    <th>請求年</th>
+    <th>請求月</th>
+    <th>案件請求金額</th>
+    <th>案件メモ</th>
+  </tr>
+
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%= task.task_name %></td>
+    <td><%= task.task_day %></td>
+    <td><%= task.task_payment_year %></td>
+    <td><%= task.task_payment_month %></td>
+    <td><%= task.task_payment %></td>
+    <td><%= task.task_content %></td>
+  </tr>
+<% end %>
+</table>

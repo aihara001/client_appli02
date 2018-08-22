@@ -1,3 +1,6 @@
 <h1>クライアント詳細画面</h1>
 <p>クライアント名: <%= @client.client_name %></p>
 <p>クライアントメモ: <%= @client.client_content %></p>
+
+<td><%= link_to '案件新規作成', new_task_path %></td>
+<td><%= link_to '案件一覧', tasks_path %></td>

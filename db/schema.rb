@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180821125145) do
+ActiveRecord::Schema.define(version: 20180822114902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(version: 20180821125145) do
     t.string "client_name"
     t.string "client_content"
     t.integer "client_payment"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "task_name"
+    t.date "task_day"
+    t.integer "task_payment_year"
+    t.integer "task_payment_month"
+    t.integer "task_payment"
+    t.string "task_content"
+    t.bigint "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_tasks_on_client_id"
   end
 
   create_table "users", force: :cascade do |t|
