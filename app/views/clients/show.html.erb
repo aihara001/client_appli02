@@ -1,8 +1,11 @@
-<h1>クライアント詳細画面</h1>
-<p>クライアント名: <%= @client.client_name %>
-クライアントメモ: <%= @client.client_content %></p>
+<h1>案件一覧/作成画面</h1>
 
-<p>案件一覧</p>
+<table class="table table-bordered">
+  <td>クライアント名：<%= @client.client_name %></td>
+  <td>クライアントメモ：<%= @client.client_content %></td>
+</table>
+
+<h2>案件一覧</h2>
 
 <table>
     <tr>

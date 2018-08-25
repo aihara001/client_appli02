@@ -10,16 +10,22 @@
       </ul>
     </div>
 <% end %>
+<div class="container">
+<div class="row">
+  
+  <div class="col-xs-12 col-md-12">
+  <div class="client_title">
+    <%= form.label :クライアント名 %><br>
+    <%= form.text_field :client_name %></div>
+  </div>
+  
+  <div class="col-xs-12 col-md-12">
+  <div class="client_title">
+    <%= form.label :クライアントメモ %><br>
+    <%= form.text_field :client_content %></div>
+  </div>
 
-  <div class="client_title">
-    <%= form.label :クライアント名 %>
-    <%= form.text_field :client_name %>
-  </div>
-  <div class="client_title">
-    <%= form.label :クライアントメモ %>
-    <%= form.text_field :client_content %>
-  </div>
-  <%= form.submit %>
+  <div class="col-xs-12 col-md-12"><br>
+  <button type="f.submit" class="btn btn-default btn-sm">登録</button></div>
+</div></div>
 <% end %>
-
-<%= link_to "一覧画面にもどる", clients_path %>

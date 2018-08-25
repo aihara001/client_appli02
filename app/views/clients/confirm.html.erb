@@ -1,16 +1,16 @@
-<h3>以下の内容で、登録する。</h3>
+<h2>以下の内容で、登録する。</h2>
 
 <%= form_with(model: @client, url: clients_path, local: true) do |form| %>
   <%= form.hidden_field :client_name %>
   <%= form.hidden_field :client_content %>
-
+  
   <p>クライアント名：<%= @client.client_name %></p>
   <p>クライアントメモ：<%= @client.client_content %></p>
-  <%= form.submit  "登録する" %>
+  <button type="f.submit" class="btn btn-default btn-sm">登録</button><br>
 <% end %>
-
+<br>
 <%= form_with(model: @client, url: new_client_path, local: true, method: 'get') do |form| %>
   <%= form.hidden_field :client_name %>
   <%= form.hidden_field :client_content %>
-  <%= form.submit "もどる", name: 'back' %>
+  <button type="submit" name='back' class="btn btn-default btn-sm">もどる</button>
 <% end %>
