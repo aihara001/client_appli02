@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
-  before_action :session_twiclo, only: [:edit, :update, :destroy, :create, :new, :index]
+  before_action :session_client, only: [:edit, :update, :destroy, :create, :new, :index]
 
   def index
     @clients = Client.all
@@ -57,7 +57,7 @@ class ClientsController < ApplicationController
     @client = Client.find(params[:id])
   end
 
-  def session_twiclo
+  def session_client
     if logged_in?
     else
       render new_session_path  

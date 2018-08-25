@@ -2,5 +2,15 @@
 <p>クライアント名: <%= @client.client_name %></p>
 <p>クライアントメモ: <%= @client.client_content %></p>
 
+<p>案件一覧</p>
+<table>
+<% @client.tasks.each do |task| %>
+  <tr>
+    <td><%= task.task_name %></td>
+    <td><%= link_to "編集", edit_task_path(task.id), data: { confirm: '本当に編集していいですか？' } %></td>
+    <td><%= link_to '削除', task_path(task.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+  </tr>
+<% end %>
+</table>
+
 <td><%= link_to '案件新規作成', new_task_path %></td>
-<td><%= link_to '案件一覧', tasks_path %></td>
