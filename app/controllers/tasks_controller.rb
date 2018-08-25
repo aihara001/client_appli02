@@ -10,7 +10,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @client = Client.find(params[:id])
+    @client = Client.find_by(params[:id])
     @task = @client.tasks.build(task_params)
     if @task.save
       redirect_to clients_path, notice: "案件を新規作成しました！"
@@ -42,7 +42,9 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:task_name)
+    params.require(:task).permit(:task_name, :task_day, 
+                                 :task_payment_year, :task_payment_month, 
+                                 :task_payment, :task_content)
   end
 
   def set_task

@@ -1,12 +1,28 @@
 <h1>クライアント詳細画面</h1>
-<p>クライアント名: <%= @client.client_name %></p>
-<p>クライアントメモ: <%= @client.client_content %></p>
+<p>クライアント名: <%= @client.client_name %>
+クライアントメモ: <%= @client.client_content %></p>
 
 <p>案件一覧</p>
+
 <table>
+    <tr>
+    <th>案件名</th>
+    <th>作業日</th>
+    <th>請求年</th>
+    <th>請求月</th>
+    <th>案件請求金額</th>
+    <th>案件メモ</th>
+  </tr>
+  
 <% @client.tasks.each do |task| %>
+
   <tr>
     <td><%= task.task_name %></td>
+    <td><%= task.task_day %></td>
+    <td><%= task.task_payment_year %></td>
+    <td><%= task.task_payment_month %></td>
+    <td><%= task.task_payment %></td>
+    <td><%= task.task_content %></td>
     <td><%= link_to "編集", edit_task_path(task.id), data: { confirm: '本当に編集していいですか？' } %></td>
     <td><%= link_to '削除', task_path(task.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
   </tr>

@@ -16,5 +16,27 @@
     <%= form.label :案件名 %>
     <%= form.text_field :task_name %>
   </div>
+  <div class="task_title">
+    <%= form.label :作業日 %>
+    <%= form.number_field :task_day %>
+  </div>
+  <div class="task_title">
+    <%= form.label :請求年 %>
+    <%= form.number_field :task_payment_year %>
+  </div>
+  <div class="task_title">
+    <%= form.label :請求月 %>
+    <%= form.number_field :task_payment_month %>
+  </div>
+  <div class="task_title">
+    <%= form.label :案件請求金額 %>
+    <%= form.number_field :task_payment %>
+  </div>
+  <div class="task_title">
+    <%= form.label :案件メモ %>
+    <%= form.text_field :task_content %>
+  </div>
+  
+  
   <%= form.submit %>
 <% end %>

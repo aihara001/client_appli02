@@ -3,7 +3,8 @@ class ClientsController < ApplicationController
   before_action :session_client, only: [:edit, :update, :destroy, :create, :new, :index]
 
   def index
-    @clients = Client.all
+    @search = Client.search(params[:q])
+    @clients = @search.result
   end
   
   def new
