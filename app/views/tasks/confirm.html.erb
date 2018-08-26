@@ -7,17 +7,17 @@
   <%= form.hidden_field :task_payment_month %>
   <%= form.hidden_field :task_payment %>
   <%= form.hidden_field :task_content %>
-
-  <p>案件名：<%= @task.task_name %></p>
-  <p>案件名：<%= @task.task_day %></p>
-  <p>案件名：<%= @task.task_payment_year %></p>
-  <p>案件名：<%= @task.task_payment_month %></p>
-  <p>案件名：<%= @task.task_payment %></p>
-  <p>案件名：<%= @task.task_content %></p>
-
-  <%= form.submit  "登録する" %>
+<table class="table table-bordered">
+  <tr><td>案件名</td><td><%= @task.task_name %></td></tr>
+  <tr><td>作業日</td><td><%= @task.task_day %></td></tr>
+  <tr><td>請求年</td><td><%= @task.task_payment_year %></td></tr>
+  <tr><td>請求月</td><td><%= @task.task_payment_month %></td></tr>
+  <tr><td>案件請求金額</td><td><%= @task.task_payment %></td></tr>
+  <tr><td>案件メモ</td><td><%= @task.task_content %></td></tr>
+</table>
+  <button type="f.submit" class="btn btn-default btn-sm">登録</button><br>
 <% end %>
-
+<br>
 <%= form_with(model: @task, url: new_task_path, local: true, method: 'get') do |form| %>
   <%= form.hidden_field :task_name %>
   <%= form.hidden_field :task_day %>
@@ -25,5 +25,5 @@
   <%= form.hidden_field :task_payment_month %>
   <%= form.hidden_field :task_payment %>
   <%= form.hidden_field :task_content %>
-  <%= form.submit "もどる", name: 'back' %>
+  <button type="submit" name='back' class="btn btn-default btn-sm">もどる</button>
 <% end %>

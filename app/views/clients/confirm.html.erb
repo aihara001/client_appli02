@@ -4,8 +4,10 @@
   <%= form.hidden_field :client_name %>
   <%= form.hidden_field :client_content %>
   
-  <p>クライアント名：<%= @client.client_name %></p>
-  <p>クライアントメモ：<%= @client.client_content %></p>
+  <table class="table table-bordered">
+  <tr><td>クライアント名</td><td><%= @client.client_name %></td></tr>
+  <tr><td>クライアントメモ</td><td><%= @client.client_content %></td></tr>
+  </table>
   <button type="f.submit" class="btn btn-default btn-sm">登録</button><br>
 <% end %>
 <br>
