@@ -25,6 +25,7 @@ class ClientsController < ApplicationController
   end
 
   def show
+    @total = Task.group(:task_payment_month).sum(:task_payment)
   end
 
   def edit

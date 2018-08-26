@@ -1,3 +1,4 @@
+
 <h1>案件一覧/作成画面</h1>
 
 <table class="table table-bordered">
@@ -7,11 +8,10 @@
 
 <h2>案件一覧 
   <button class="btn btn-default">
-    <%= link_to '案件新規作成', new_task_path %>
+    <%= link_to '案件新規作成', new_task_path(@client.id) %>
   </button>
 </h2>
 
-  <div  class="container">
     <table class="table table-striped table-bordered table-hover table-condensed">
     <thead>
      <tr>
@@ -46,6 +46,12 @@
 
   </tr>
 <% end %>
-</tbody>
+  </tbody>
 </table>
 
+<h2>案件月別請求額</h2>
+
+<% @client.tasks.each do |task| %>
+<p><%= @total %></p>
+
+<% end %>

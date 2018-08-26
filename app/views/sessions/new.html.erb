@@ -1,16 +1,14 @@
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-md-12">
-        <section class="main-header">
-          <%= image_tag "tops4.png" %>
-        </section></div>
-      </div>
+<div class="row">
+  <div class="col-xs-12 col-md-12">
+    <section class="main-header">
+      <%= image_tag "tops4.png" %>
+    </section>
+   </div>
 </div>
 
-<div class="content02">
 <h1 >ログイン画面</h1>
 <p>※未登録の方は新規ユーザー登録後にログインをして下さい</p>
-</div>
+
 <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
 
 <div class="container">

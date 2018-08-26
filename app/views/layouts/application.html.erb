@@ -30,12 +30,13 @@
               <%= link_to "新規ユーザー登録", new_user_path %>
             </button>
           <% end %>
-
-                <%= notice %></p>
+        <%= notice %></p>
   </header>
   
+  <div class="container">
   <div class="content">
-
-    <%= yield %></div>
+    <%= yield %>
+  </div>
+  </div>
   </body>
 </html>
