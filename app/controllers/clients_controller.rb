@@ -18,14 +18,27 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(client_params)
     if @client.save
-      redirect_to clients_path, notice: "クラインアトを新規作成しました！"
+      redirect_to clients_path, notice: "クライアントを新規作成しました！"
     else
       render 'new'
     end
   end
 
   def show
-    @total = Task.group(:task_payment_month).sum(:task_payment)
+    @count = Task.where(task_payment_month: '3').sum(:task_payment)
+    @total = Client.find(params[:id])
+    @payment01 = Task.where(task_payment_month: '1').sum(:task_payment)
+    @payment02 = Task.where(task_payment_month: '2').sum(:task_payment)
+    @payment03 = Task.where(task_payment_month: '3').sum(:task_payment)
+    @payment04 = Task.where(task_payment_month: '4').sum(:task_payment)
+    @payment05 = Task.where(task_payment_month: '5').sum(:task_payment)
+    @payment06 = Task.where(task_payment_month: '6').sum(:task_payment)
+    @payment07 = Task.where(task_payment_month: '7').sum(:task_payment)
+    @payment08 = Task.where(task_payment_month: '8').sum(:task_payment)
+    @payment09 = Task.where(task_payment_month: '9').sum(:task_payment)
+    @payment10 = Task.where(task_payment_month: '10').sum(:task_payment)
+    @payment11 = Task.where(task_payment_month: '11').sum(:task_payment)
+    @payment12 = Task.where(task_payment_month: '12').sum(:task_payment)
   end
 
   def edit
@@ -33,7 +46,7 @@ class ClientsController < ApplicationController
 
   def update
     if @client.update(client_params)
-      redirect_to clients_path, notice: "編集しました！"
+      redirect_to clients_path, notice: "クライアントを編集しました！"
     else
       render 'edit'
     end
@@ -41,7 +54,7 @@ class ClientsController < ApplicationController
 
   def destroy
     @client.destroy
-    redirect_to clients_path, notice:"削除しました！"
+    redirect_to clients_path, notice:"クライアントを削除しました！"
   end
 
   def confirm
