@@ -1,9 +1,9 @@
 module TasksHelper
-  def choose_new_or_edit_task
-    if action_name == 'new' || action_name == 'confirm'
-      confirm_tasks_path
+  def choose_new_or_edit_tasks
+    if action_name == 'new'
+      client_tasks_path(@client)
     elsif action_name == 'edit'
-      task_path
+      client_task_path(@client,@task)
     end
   end
 end

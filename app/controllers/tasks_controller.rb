@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:edit, :update, :destroy]
+  before_action :set_client_id, only: [:new, :create, :edit, :update, :destroy]
 
   def new
     if params[:back]
@@ -10,10 +11,9 @@ class TasksController < ApplicationController
   end
 
   def create
-    @client = Client.find_by(params[:id])
     @task = @client.tasks.build(task_params)
     if @task.save
-      redirect_to clients_path, notice: "案件を新規作成しました！"
+      redirect_to client_path(@client.id), notice: "案件を新規作成しました！"
     else
       render 'new'
     end
@@ -23,8 +23,8 @@ class TasksController < ApplicationController
   end
 
   def update
-    if @task.update(task_params)
-      redirect_to clients_path, notice: "案件を編集しました！"
+    if  @task.update(task_params)
+        redirect_to client_path(@client.id), notice: "案件を編集しました！"
     else
       render 'edit'
     end
@@ -32,11 +32,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to clients_path, notice:"案件を削除しました！"
-  end
-
-  def confirm
-    @task = Task.new(task_params)
+    redirect_to client_path(@client.id), notice:"案件を削除しました！"
   end
 
   private
@@ -51,4 +47,8 @@ class TasksController < ApplicationController
      @task = Task.find(params[:id])
   end
 
+  def set_client_id
+    @client = Client.find(params[:client_id])
+  end
+  
 end

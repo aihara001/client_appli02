@@ -1,3 +1,62 @@
-  <h2>案件新規作成</h2>
+<h2>案件新規作成</h2>
 
-  <%= render 'form' %>
+<%= form_with(model: @task, local: true ,url: client_tasks_path(@client) ) do |form| %>
+
+<% if @task.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @task.errors.count %>件のエラーがあります。</h2>
+    <ul>
+
+    <% @task.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="container">
+<div class="row">
+  
+<div class="col-xs-12 col-md-12">
+  <div class="task_title">
+    <%= form.label :案件名 %><br>
+    <%= form.text_field :task_name %></div>
+  </div>
+  
+  <div class="col-xs-12 col-md-12">
+  <div class="task_title">
+    <%= form.label :作業日 %><br>
+    <%= form.date_field :task_day %></div>
+  </div>
+  
+  <div class="col-xs-12 col-md-12">
+  <div class="task_title">
+    <%= form.label :請求年 %><br>
+    <%= form.select :task_payment_year, [["2018", "2018"], ["2019", "2019"]], :prompt => "請求年を選択してください" %></div>
+  </div>
+  
+  <div class="col-xs-12 col-md-12">
+  <div class="task_title">
+    <%= form.label :請求月 %><br>
+    <%= form.select :task_payment_month, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["11", "11"], ["12", "12"]], :prompt => "請求月を選択してください" %></div>
+  </div>
+  
+  <div class="col-xs-12 col-md-12">
+  <div class="task_title">
+    <%= form.label :案件請求金額 %><br>
+    <%= form.number_field :task_payment, min: 0, max: 999999999 %>円</div>
+  </div>
+  
+  <div class="col-xs-12 col-md-12">
+  <div class="task_title">
+    <%= form.label :案件メモ %><br>
+    <%= form.text_field :task_content %></div>
+  </div>
+  
+  <div class="col-xs-12 col-md-12"><br>
+  <button type="f.submit" class="btn btn-default btn-sm">登録</button>
+  </div>
+  
+  </div></div>
+  
+<% end %>

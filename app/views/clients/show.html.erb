@@ -7,7 +7,7 @@
 
 <h2>案件一覧 
   <button class="btn btn-default">
-    <%= link_to '案件新規作成', new_task_path(@client.id) %>
+    <%= link_to '案件新規作成', new_client_task_path(@client) %>
   </button>
 </h2>
 
@@ -33,23 +33,24 @@
         <td><%= task.task_payment %>円</td>
         <td><%= task.task_content %></td>
         <td>
-          <button class="btn btn-default">
-            <%= link_to "編集", edit_task_path(task.id), data: { confirm: '本当に編集していいですか？' } %>
-          </button>
+        <button class="btn btn-default">
+          <%= link_to "編集", edit_client_task_path(@client,task.id), data: { confirm: '本当に編集していいですか？' } %>
+        </button>
         </td>
         <td>
-          <button class="btn btn-default">
-            <%= link_to '削除', task_path(task.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
-          </button>
+        <button class="btn btn-default">
+          <%= link_to '削除', client_task_path(@client,task.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+        </button>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<td><%= task.task_payment_year %></td>
+
 <h2>月別請求額</h2>
 
-  <% @total.tasks.each do |total| %>
   <p>1月<%= @payment01 %>円</p>
   <p>2月<%= @payment02 %>円</p>
   <p>3月<%= @payment03 %>円</p>
@@ -62,19 +63,3 @@
   <p>10月<%= @payment10 %>円</p>
   <p>11月<%= @payment11 %>円</p>
   <p>12月<%= @payment12 %>円</p>
-<% end %>
-
-<% if @count < 1 %>
-  <p>1月<%= @payment01 %>円</p>
-  <p>2月<%= @payment02 %>円</p>
-  <p>3月<%= @payment03 %>円</p>
-  <p>4月<%= @payment04 %>円</p>
-  <p>5月<%= @payment05 %>円</p>
-  <p>6月<%= @payment06 %>円</p>
-  <p>7月<%= @payment07 %>円</p>
-  <p>8月<%= @payment08 %>円</p>
-  <p>9月<%= @payment09 %>円</p>
-  <p>10月<%= @payment10 %>円</p>
-  <p>11月<%= @payment11 %>円</p>
-  <p>12月<%= @payment12 %>円</p>
-<% end %>

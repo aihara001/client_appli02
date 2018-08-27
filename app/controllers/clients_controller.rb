@@ -25,8 +25,7 @@ class ClientsController < ApplicationController
   end
 
   def show
-    @count = Task.where(task_payment_month: '3').sum(:task_payment)
-    @total = Client.find(params[:id])
+    @tasks = @client.tasks
     @payment01 = Task.where(task_payment_month: '1').sum(:task_payment)
     @payment02 = Task.where(task_payment_month: '2').sum(:task_payment)
     @payment03 = Task.where(task_payment_month: '3').sum(:task_payment)
