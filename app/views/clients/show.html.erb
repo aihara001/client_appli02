@@ -47,19 +47,18 @@
   </tbody>
 </table>
 
-<td><%= task.task_payment_year %></td>
-
-<h2>月別請求額</h2>
-
-  <p>1月<%= @payment01 %>円</p>
-  <p>2月<%= @payment02 %>円</p>
-  <p>3月<%= @payment03 %>円</p>
-  <p>4月<%= @payment04 %>円</p>
-  <p>5月<%= @payment05 %>円</p>
-  <p>6月<%= @payment06 %>円</p>
-  <p>7月<%= @payment07 %>円</p>
-  <p>8月<%= @payment08 %>円</p>
-  <p>9月<%= @payment09 %>円</p>
-  <p>10月<%= @payment10 %>円</p>
-  <p>11月<%= @payment11 %>円</p>
-  <p>12月<%= @payment12 %>円</p>
+<h2>2018年：月別請求額</h2>
+<table class="table table-striped table-bordered table-hover table-condensed">
+  <td>1月</td><td><%= @payment01 %>円</td><tr>
+  <td>2月</td><td><%= @payment02 %>円</td><tr>
+  <td>3月</td><td><%= @payment03 %>円</td><tr>
+  <td>4月</td><td><%= @payment04 %>円</td><tr>
+  <td>5月</td><td><%= @payment05 %>円</td><tr>
+  <td>6月</td><td><%= @payment06 %>円</td><tr>
+  <td>7月</td><td><%= @payment07 %>円</td><tr>
+  <td>8月</td><td><%= @payment08 %>円</td><tr>
+  <td>9月</td><td><%= @payment09 %>円</td><tr>
+  <td>10月</td><td><%= @payment10 %>円</td><tr>
+  <td>11月</td><td><%= @payment11 %>円</td><tr>
+  <td>12月</td><td><%= @payment12 %>円</td><tr>
+</table>
