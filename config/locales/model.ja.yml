@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    models:
+      client: "クライアント"
+      user: "ユーザー"
+      task: "案件"
+    attributes:
+      client:
+        client_name: "クライアント名"
+        client_content: "クライアントメモ"
+      user:
+        title: "タイトル"
+        name: "名前"
+        email: "メールアドレス"
+        current_password: "現在のパスワード"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        remember_me: "ログインを記憶"
+      task:
+        task_name: "案件名"
+        task_day: "作業日"
+        task_payment_year: "請求年"
+        task_payment_month: "請求月"
+        task_payment: "案件請求金額"
+        task_content: "案件メモ"

@@ -4,7 +4,6 @@
     <div id="error_explanation">
       <h2><%= @client.errors.count %>件のエラーがあります。</h2>
       <ul>
-
       <% @client.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
@@ -22,7 +21,7 @@
   
   <div class="col-xs-12 col-md-12">
   <div class="client_title">
-    <%= form.label :クライアントメモ %><br>
+    <%= form.label :クライアントメモ %>（任意入力）<br>
     <%= form.text_field :client_content %></div>
   </div>
 
