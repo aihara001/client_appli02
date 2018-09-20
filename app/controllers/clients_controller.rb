@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
-  before_action :session_client, only: [:edit, :update, :destroy, :create, :new, :index]
+  before_action :access_permission, except: [:show]
 
   def index
     @search = Client.search(params[:q])
@@ -20,7 +20,7 @@ class ClientsController < ApplicationController
     if @client.save
       redirect_to clients_path, notice: "クライアントを新規作成しました！"
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -47,7 +47,7 @@ class ClientsController < ApplicationController
     if @client.update(client_params)
       redirect_to clients_path, notice: "クライアントを編集しました！"
     else
-      render 'edit'
+      render :edit
     end
   end
 
@@ -71,7 +71,7 @@ class ClientsController < ApplicationController
     @client = Client.find(params[:id])
   end
 
-  def session_client
+  def access_permission
     if logged_in?
     else
       render new_session_path  

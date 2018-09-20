@@ -15,7 +15,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to client_path(@client.id), notice: "案件を新規作成しました！"
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -26,7 +26,7 @@ class TasksController < ApplicationController
     if  @task.update(task_params)
         redirect_to client_path(@client.id), notice: "案件を編集しました！"
     else
-      render 'edit'
+      render :edit
     end
   end
 
